@@ -1,16 +1,19 @@
-# Color Blender
+# Color Blender (v2, SwiftUI)
 
-A native iOS UIKit app that presents a color-blending layout with a
-title and a grid of color views. The visible interface is defined in
-`Main.storyboard`.
+An interactive color blender. Two colors, each set with three
+RGB sliders as in v1, a blend-ratio slider, the blended result
+with its hex value, a five-step blend grid, and preset pairs
+from v1's storyboard colors.
+
+v1 had these controls in its storyboard but no code behind
+them. v2 wires them to an `@Observable` view model, and
+blending itself is a pure `RGBColor` function.
 
 ## Tech Stack
 
-- Swift 5.0
-- UIKit
-- Storyboards and Auto Layout
-- iOS 16.4 deployment target
-- iPhone and iPad
+- Swift 6
+- SwiftUI
+- iOS 17.0 or later
 - No external dependencies
 
 ## Setup
@@ -19,16 +22,11 @@ title and a grid of color views. The visible interface is defined in
 2. Select an iPhone or iPad simulator, or a connected device.
 3. Press **Run** (`Cmd+R`).
 
-## What's in here
-
-- `ColorBlender/Base.lproj/Main.storyboard` — the color-view layout
-  and Auto Layout constraints.
-- `ColorBlender/Base.lproj/LaunchScreen.storyboard` — launch screen.
-- `ColorBlender/ViewController.swift` — the initial view controller.
-  It is an empty stub: the layout is the example, and interaction
-  logic was never added beyond the storyboard.
+Tests: press **Test** (`Cmd+U`). The suite covers blend
+endpoints, midpoints, clamping, hex formatting, and the
+blender view model's five-step grid.
 
 ## Known limitations
 
-- Not built on the machine this was prepared on (no Xcode there).
-  Run it on iPhone and iPad simulators first.
+- Not built on the machine this was prepared on (no Xcode
+  there). Run it on iPhone and iPad simulators first.

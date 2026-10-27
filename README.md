@@ -1,76 +1,76 @@
-# iOS UIKit Layout Examples
+# iOS UIKit Layout Examples — now SwiftUI
 
-Three small UIKit storyboard examples from April 2023, consolidated into one
-repository. They share a stack — Swift 5, UIKit, storyboards, Auto Layout,
-no external dependencies — but they are not the same example repeated.
+Three small iOS examples from April 2023, consolidated into one
+repository and modernized to current standards in v2.0.0. They
+share a stack — Swift 6, SwiftUI, iOS 17.0, no external
+dependencies — but they are not the same example repeated.
 
-This is a learning collection, not a finished app. Each example is kept
-exactly as a runnable Xcode project, with its own folder and README.
+v1 was UIKit storyboards. v2 rewrites all three in SwiftUI; the
+v1 code remains in git history, one commit back, for anyone who
+wants the storyboard versions.
 
 ## Examples
 
 | Example | Folder | What it is |
 | --- | --- | --- |
-| Radioactive Elements | `examples/radioactive-elements/` | The only example with real app logic: a table of radioactive elements, with a detail view on row selection. iOS 13.6. |
-| Auto Layout Exercises | `examples/autolayout-exercises/` | Storyboard Auto Layout / size-class exercises for iPhone and iPad. The ViewController is an empty stub; the layout is the example. iOS 16.4. |
-| Color Blender | `examples/color-blender/` | A storyboard color-blending layout with a title and a grid of color views. The ViewController is an empty stub; the layout is the example. iOS 16.4. |
+| Radioactive Elements | `examples/radioactive-elements/` | The only example with real data: a searchable list of 12 radioactive elements, with a sectioned detail view on selection. iPad shows list beside detail. |
+| Auto Layout Exercises | `examples/autolayout-exercises/` | Layout demos: an adaptive stack, an adaptive grid, a size-class demo, and a slider-controlled spacing demo. |
+| Color Blender | `examples/color-blender/` | An interactive blender: two colors set with RGB sliders, a blend-ratio slider, the blended result with its hex value, and a five-step blend grid. |
 
 ## Setup
 
-Each example is independent. There are no package installation steps.
+Each example is an independent Xcode project. There are no
+package installation steps.
 
 1. Open the example's `.xcodeproj` in Xcode on macOS.
 2. Select an iPhone or iPad simulator (or a connected device).
 3. Press **Run** (`Cmd+R`).
 
-For a physical device, select your own development team in the target's
-**Signing & Capabilities** settings. No signing team is baked into these
-projects.
+For a physical device, select your own development team in the
+target's **Signing & Capabilities** settings. No signing team
+is baked into these projects.
+
+Tests: open a project and press **Test** (`Cmd+U`), or run
+the CI workflow, which tests all three projects on an iPhone 17
+simulator.
 
 ## History: why four original folders became three examples
 
-The original upload contained four folders. They were not four separate
-examples:
+The original upload contained four folders. They were not four
+separate examples:
 
-- `AdaptiveLayout_Lecture1` was the starter step of the radioactive-elements
-  app: its storyboard had no table view yet. `AdaptiveLayout_Lecture1-2`
-  is the same project finished — identical project file, AppDelegate, and
-  table cell, with the table view, detail outlets, and images added. Only
-  the finished version is published here, as `radioactive-elements/`;
-  the starter is recorded here, not as a separate repo.
-- `AutoLayout` and `ColorBlender` are distinct exercises, so each keeps
-  its own folder, but neither is strong enough on its own to justify a
-  standalone repository.
+- `AdaptiveLayout_Lecture1` was the starter step of the
+  radioactive-elements app: its storyboard had no table view
+  yet. `AdaptiveLayout_Lecture1-2` is the same project
+  finished — identical project file, AppDelegate, and table
+  cell, with the table view, detail outlets, and images added.
+  Only the finished version was published in v1, as
+  `radioactive-elements/`; the starter is recorded in the
+  CHANGELOG, not as a separate repo.
+- `AutoLayout` and `ColorBlender` are distinct exercises, so
+  each keeps its own folder, but neither is strong enough on
+  its own to justify a standalone repository.
 
-## Changes made for publication
+## What v2 changed
 
-- MIT LICENSE added (holder: enonymous1).
-- Sanitized to the enonymous1 pattern: bundle identifiers changed from
-  the original student/school prefixes to `com.enonymous1.*`, the
-  Developer Team ID removed, author headers changed to "enonymous1",
-  and the tracked `xcuserdata/` folders removed.
-- AutoLayout cleanup: the duplicate `Base.lproj/Layout2.storyboard`
-  (identical to `Base.lproj/Main.storyboard`, not referenced by the
-  project) was removed. The project's Layout2 reference originally
-  pointed to a file outside the repository; it now points to the
-  shipped `Layout2.storyboard` at the example root. Confirm in Xcode
-  that Layout2 loads as expected.
-- The radioactive-elements data comment was rewritten: the element data
-  is a curated selection from Wikipedia, not a verified catalog.
-  Verify figures before reuse.
+See `CHANGELOG.md` for the full list. In short: SwiftUI
+throughout, `Codable` models and `@Observable` view models,
+Swift Testing suites (18 tests total), SwiftLint, GitHub
+Actions CI, generated app icons and real accent colors, and
+generated Info.plists. The v1 data is preserved except for one
+correction: "Actinum" is now spelled "Actinium" in the
+radioactive-elements data. Element figures are a curated
+selection from Wikipedia and should be verified before reuse.
 
 ## Known limitations
 
-- Not built on this machine: there is no Xcode/Swift toolchain on the
-  Linux box this was prepared on. Open each project in Xcode and run it
-  on iPhone and iPad simulators before calling it verified.
-- Radioactive Elements: `Info.plist` still references a `LaunchScreen`
-  storyboard that is not in the source tree, and the Xcode test target
-  is empty. The detail view is populated from in-memory data in
-  `ViewController.swift`.
-- Auto Layout and Color Blender: interaction logic was never added
-  beyond the storyboard layout. Their ViewControllers contain only
-  `viewDidLoad`.
+- Not built on the machine this was prepared on: there is no
+  Xcode/Swift toolchain on the Linux box used here. The build
+  gate is CI plus Xcode on a Mac after push — run each example
+  on iPhone and iPad simulators first.
+- The Auto Layout demos teach SwiftUI layout now, not
+  Interface Builder constraints. For the original constraint
+  exercises, check out the v1 commit.
 
 ## License
 

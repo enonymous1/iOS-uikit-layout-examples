@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "350674C029E48F5A0001A740"
+               BlueprintIdentifier = "D7D920DB6A9B2FCBB32B1CC1"
                BuildableName = "ColorBlender.app"
                BlueprintName = "ColorBlender"
                ReferencedContainer = "container:ColorBlender.xcodeproj">
@@ -43,7 +43,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "350674C029E48F5A0001A740"
+            BlueprintIdentifier = "D7D920DB6A9B2FCBB32B1CC1"
             BuildableName = "ColorBlender.app"
             BlueprintName = "ColorBlender"
             ReferencedContainer = "container:ColorBlender.xcodeproj">
@@ -60,7 +60,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "350674C029E48F5A0001A740"
+            BlueprintIdentifier = "D7D920DB6A9B2FCBB32B1CC1"
             BuildableName = "ColorBlender.app"
             BlueprintName = "ColorBlender"
             ReferencedContainer = "container:ColorBlender.xcodeproj">

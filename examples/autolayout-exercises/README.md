@@ -1,16 +1,21 @@
-# Auto Layout Exercises
+# Auto Layout Exercises (v2, SwiftUI)
 
-An iOS UIKit sample for experimenting with Auto Layout constraints,
-storyboards, and size-class-specific layouts for iPhone and iPad.
-The interface is built primarily in Interface Builder.
+Layout demos for iPhone and iPad: an adaptive stack that sits
+side by side on wide layouts and stacks on narrow ones, an
+adaptive grid in v1's Layout2 palette, a size-class demo, and
+a slider-controlled spacing demo.
+
+v1 was Interface Builder storyboards. v2 is SwiftUI, and the
+layout decisions live in a testable `LayoutModel` instead of
+storyboard constraints — the demos teach the same adaptive
+ideas in the current idiom. For the original constraint
+exercises, check out the v1 commit.
 
 ## Tech Stack
 
-- Swift 5.0
-- UIKit
-- Xcode project and Interface Builder storyboards
-- iOS 16.4 or later
-- iPhone and iPad
+- Swift 6
+- SwiftUI
+- iOS 17.0 or later
 - No external dependencies
 
 ## Setup
@@ -19,21 +24,10 @@ The interface is built primarily in Interface Builder.
 2. Select an iPhone or iPad simulator, or a connected device.
 3. Press **Run** (`Cmd+R`).
 
-## What's in here
-
-- `AutoLayout/Base.lproj/Main.storyboard` — the app's main storyboard.
-- `Layout2.storyboard` (at the example root) — additional Auto Layout
-  exercises, included as a project resource. The project reference
-  originally pointed to a file outside the repository; it now points
-  to this shipped file. Confirm in Xcode that it loads as expected.
-- `AutoLayout/Base.lproj/LaunchScreen.storyboard` — launch screen.
-
-The `ViewController.swift` is intentionally an empty stub: the layout
-itself is the exercise, and no interaction logic was added.
+Tests: press **Test** (`Cmd+U`). The suite covers grid
+columns and the stacked/side-by-side breakpoint.
 
 ## Known limitations
 
-- Not built on the machine this was prepared on (no Xcode there).
-  Run it on iPhone and iPad simulators first.
-- A duplicate `Base.lproj/Layout2.storyboard` (identical to Main, not
-  referenced by the project) was removed during publication cleanup.
+- Not built on the machine this was prepared on (no Xcode
+  there). Run it on iPhone and iPad simulators first.
